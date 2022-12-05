@@ -37,20 +37,19 @@
 
 En primer lugar, hemos cargado los archivos con los cuales realizaremos la mejor predicción salarial.
 
-Hemos empezado analizando cada columna y decidimos eliminar las columnas:'salary','salary_currency','employee_residence', porque no aportan información importante para la prediccion que queremos hacer. Además, contamos con otra columna 'salary_in_usd' que esa será nuestra variable 'y' y nos proporciona datos mas detallados que las columnas que acabamos de eliminar.
+Hemos empezado analizando cada columna y decidimos eliminar las columnas:'salary','salary_currency','employee_residence', porque no aportan información importante para la prediccion que queremos hacer. 
+Además, contamos con otra columna 'salary_in_usd' que esa será nuestra variable 'y' y nos proporciona datos mas detallados que las columnas que acabamos de eliminar.
 
 Posteriormente, despues de haber limpiado y modificado columnas de diferentes formas y de haber usado diferentes modelos de predicción, vemos que la siguiente limpieza es la que más se acerca a nuestro objetivo, es decir la que menos error muestral tiene:
 
  - Modificamos la columna 'job_title' y nos quedamos con solamente estas 4 variables:
 
-    ==> Machine Learning
-    ==> Data Engineer
-    ==> Data Analyst
-    ==> Data Scientist
+    - Machine Learning
+    - Data Engineer
+    - Data Analyst
+    - Data Scientist
 
- - Reemplazamos, en la columna 'employment_type',  los valores CT y FL por PT y FT respectivamente para quedarnos con esas 2 variables únicamente para tener una mejor predicción en el modelo.
-
-    Posteriormente, creamos una funcion para asignar una escala numerica a esas dos variables, PT y FT. Siendo 1 y 0.5 respectivamente
+ - Reemplazamos, en la columna 'employment_type',  los valores CT y FL por PT y FT respectivamente para quedarnos con esas 2 variables únicamente para tener una mejor predicción en el modelo. Posteriormente, creamos una funcion para asignar una escala numerica a esas dos variables, PT y FT. Siendo 1 y 0.5 respectivamente
 
  - En la columna 'experience_level' asignamos un número en función de la categoria/experiencia que tenga el empleado. A mayor experiencia, asignaremos un número más alto.
 
@@ -59,6 +58,7 @@ Posteriormente, despues de haber limpiado y modificado columnas de diferentes fo
 A continuación, con el método one-hot encoding, utilizaremos la función get_dummies para evitar la colinealidad. Transformaremos los datos a 0 o 1.
 
 Una vez que importamos los modelos, los iniciamos y entrenamos. 
+
 A la hora de la predicción y evaluación podemos observar que los modelos Ridge y PoissonRegressor nos muestran los errores más bajos con un r2 en torno al 60%. 
 
 
